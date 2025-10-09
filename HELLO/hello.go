@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	exibeNomes()
+
 	exibeIntroducao()
 	for {
 		exibeMenu()
@@ -54,10 +54,13 @@ func leComando() int {
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
 
-	var sites [4]string
-	sites[0] = "https://random-status-code.herokuapp.com/"
-	sites[1] = "https://www.alura.com.br"
-	sites[2] = "https://www.caelum.com.br"
+	sites := []string{"https://random-status-code.herokuapp.com/",
+		"https://www.alura.com.br", "https://www.caelum.com.br"}
+
+	for i, site := range sites {
+		fmt.Println("Estou passando na posição", i,
+			"do meu slice e essa posição tem o site", site)
+	}
 
 	site := "https://www.alura.com.br"
 	resp, _ := http.Get(site)
@@ -69,12 +72,14 @@ func iniciarMonitoramento() {
 	}
 }
 
-func exibeNomes() {
-	nomes := []string{"Kento", "Daniel", "Bernardo"}
-	fmt.Println("O meu slice tem", len(nomes), "itens")
-	fmt.Println("O meu slice tem capacidade para", cap(nomes), "itens")
+// func exibeNomes() {
+// 	nomes := []string{"Kento", "Daniel", "Bernardo"}
+// 	fmt.Println("O meu slice tem", len(nomes), "itens")
+// 	fmt.Println("O meu slice tem capacidade para", cap(nomes), "itens")
 
-	nomes = append(nomes, "Aparecida")
-	fmt.Println("O meu slice tem", len(nomes), "itens")
-	fmt.Println("O meu slice tem capacidade para", cap(nomes), "itens")
-}
+// 	nomes = append(nomes, "Aparecida")
+// 	fmt.Println("O meu slice tem", len(nomes), "itens")
+// 	fmt.Println("O meu slice tem capacidade para", cap(nomes), "itens")
+// }
+
+// restante do código omitido
