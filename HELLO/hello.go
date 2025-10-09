@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	exibeNomes()
 	exibeIntroducao()
 	for {
 		exibeMenu()
@@ -66,4 +67,14 @@ func iniciarMonitoramento() {
 	} else {
 		fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
 	}
+}
+
+func exibeNomes() {
+	nomes := []string{"Kento", "Daniel", "Bernardo"}
+	fmt.Println("O meu slice tem", len(nomes), "itens")
+	fmt.Println("O meu slice tem capacidade para", cap(nomes), "itens")
+
+	nomes = append(nomes, "Aparecida")
+	fmt.Println("O meu slice tem", len(nomes), "itens")
+	fmt.Println("O meu slice tem capacidade para", cap(nomes), "itens")
 }
